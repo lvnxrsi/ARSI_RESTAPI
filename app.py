@@ -4,6 +4,7 @@ from flask_mysqldb import MySQL
 import jwt
 import datetime
 from functools import wraps
+from dicttoxml import dicttoxml
 from db import MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DB, MYSQL_PORT, JWT_SECRET, JWT_ALGORITHM, JWT_EXPIRE_SECONDS
 
 app = Flask(__name__)
@@ -41,6 +42,12 @@ def login():
         }, JWT_SECRET, algorithm=JWT_ALGORITHM)
         return jsonify({'token': token})
     return make_response('Invalid credentials', 401)
+
+def format_response(data):
+    fmt = request.args.get('format', 'json').lower()
+    if fmt == 'xml':
+        return app.response_class(dicttoxml(data), mimetype='application/xml')
+    return jsonify(data)
 
 if __name__ == '__main__':
     app.run(debug=True)

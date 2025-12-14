@@ -1,0 +1,9 @@
+MYSQL_HOST = 'localhost'
+MYSQL_USER = 'root'
+MYSQL_PASSWORD = 'root'
+MYSQL_DB = 'flowers'
+MYSQL_PORT = 3306
+
+JWT_SECRET = 'super-secret-key'
+JWT_ALGORITHM = 'HS256'
+JWT_EXPIRE_SECONDS = 3600  

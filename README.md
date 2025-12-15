@@ -68,3 +68,7 @@
 - XML output is available via query parameter
 - JWT protects create, update, and delete operations
 - Proper HTTP status codes are returned for all requests
+
+## Author
+- Luvna E. Arsi
+- BSCS3 Block 1
